@@ -7,7 +7,7 @@ const signalR = require("@aspnet/signalr");
 // Link website https://staging.tradeline.vn
 
 let connection = new signalR.HubConnectionBuilder()
-    .withUrl("https://stagingchathub.tradeline.vn/chatHub?userId=4490")
+    .withUrl("https://trackingt.tradeline.vn/chatHub?userId=3349")
     .build();
 
 connection.on("ReceiveMessage", (...arr) => {
@@ -18,5 +18,11 @@ connection.start()
     .then((res, error) => {
         console.log('ok', res, error);
         connection.send('GetConnectionId');
-        connection.send('SendMessageFromApp', '3349', '4490', 'ngo hai hue');
+        for(let i = 0;i < 10; i++) {
+            connection.send('SendMessageFromApp', '3383', '3349', 'ngo hai hue');
+        }
     });
+
+
+
+
